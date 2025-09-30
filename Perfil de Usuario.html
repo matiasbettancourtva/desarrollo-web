@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edición de Perfil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 800px;
+      max-width: 100%;
+    }
+    .promo {
+      background: #f0f4ff;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: red;
+      font-weight: bold;
+    }
+    .form-section {
+      flex: 2;
+      padding: 40px;
+      text-align: center;
+    }
+    .header {
+      background: #b00020;
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    button {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      border: none;
+      color: white;
+      padding: 14px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="promo">
+      <span>Frío Natural</span>
+      <small>Ilustración / promo</small>
+    </div>
+    <div class="form-section">
+      <div class="header">Edición de Perfil</div>
+      <form id="profileForm">
+        <input type="text" id="name" placeholder="Nombre completo: Juan Pérez" required>
+        <input type="email" id="email" placeholder="Correo electrónico: ejemplo@correo.com" required>
+        <input type="password" id="password" placeholder="Contraseña: ******" required>
+        <p>Actualiza tu información personal</p>
+        <button type="submit">Guardar Cambios</button>
+      </form>
+      <div class="message" id="message"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('profileForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Simulación de validaciones básicas
+      if (name && email.includes("@") && password.length >= 6) {
+        message.textContent = "Datos actualizados correctamente ✅";
+        message.className = "message success";
+      } else {
+        message.textContent = "Error: Datos inválidos, no se pudo guardar ❌";
+        message.className = "message error";
+      }
+    });
+  </script>
+</body>
+</html>
