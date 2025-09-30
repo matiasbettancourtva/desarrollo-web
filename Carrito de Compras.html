@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras - Esqueleto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    /* Columna izquierda */
+    .promo {
+      flex: 1;
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Producto */
+    .producto {
+      flex: 1;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    /* Carrito */
+    .carrito {
+      flex: 2;
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .carrito h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .item-carrito {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #e6ffe6;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-agregar {
+      background: #28a745;
+      color: white;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .btn-eliminar {
+      background: #dc3545;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Columna izquierda -->
+    <div class="promo">
+      Frío Natural <br> Ilustración / promo
+    </div>
+
+    <!-- Producto -->
+    <div class="producto">
+      <h3>Producto A</h3>
+      <p>Precio: $10.000</p>
+    </div>
+
+    <!-- Carrito -->
+    <div class="carrito">
+      <h2>🛒 Carrito</h2>
+
+      <div class="item-carrito">
+        <span>Producto A - $10.000</span>
+        <button class="btn btn-eliminar">Eliminar</button>
+      </div>
+
+      <button class="btn btn-agregar">Agregar al carrito</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
