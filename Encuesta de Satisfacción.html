@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul muy claro) */
+        .encuesta-header {
+            background-color: #e3f2fd; /* Azul muy claro similar al diagrama */
+            color: #333;
+            border-left: 5px solid #ff9800; /* Naranja/Ámbar para el icono */
+            text-align: center;
+        }
+        
+        .encuesta-header h2 {
+            margin: 0;
+        }
+
+        /* Bloque de Propósito y Restricciones (Blanco) */
+        .encuesta-info {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-size: 0.95em;
+        }
+        
+        .encuesta-info strong {
+            color: #ff9800; /* Naranja para títulos */
+        }
+        
+        .encuesta-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 10px 0;
+        }
+        
+        .encuesta-info li {
+            padding: 2px 0;
+        }
+
+        /* Bloque de Botón (Azul claro) */
+        .encuesta-accion {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .encuesta-accion button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Panel de Ejemplo / Log (Amarillo) */
+        .encuesta-log {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+        .encuesta-log h4 {
+            margin-top: 0;
+            color: #ff9800; /* Naranja para el icono de ejemplo */
+        }
+        
+        /* Mensaje de Éxito (Verde claro) */
+        .encuesta-exitosa {
+            background-color: #d4edda; /* Fondo verde claro */
+            color: #155724; /* Texto verde oscuro */
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Mensaje de Error (Rojo pálido) */
+        .error-encuesta {
+            background-color: #f8d7da; /* Fondo rojo claro */
+            color: #721c24; /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel encuesta-header">
+            <h2>📊 Encuestas de Satisfacción</h2>
+        </div>
+
+        <div class="panel encuesta-info">
+            <p><strong>Propósito:</strong> Recoger retroalimentación de clientes.</p>
+            <p><strong>Entradas:</strong> Preguntas de encuesta recibidas.</p>
+            <p><strong>Salidas:</strong> Respuestas almacenadas en el sistema.</p>
+            <p><strong>Restricciones:</strong> Conexión activa al sistema de encuestas.</p>
+        </div>
+
+        <div class="panel encuesta-accion">
+            <button>[ 👍 Recibir Encuesta ]</button>
+        </div>
+        
+        <div class="panel encuesta-exitosa">
+            <p>✔️ **Encuesta completada y respuestas registradas**</p>
+        </div>
+
+        <div class="panel error-encuesta">
+            <p>❌ **Error al registrar encuesta, se muestra mensaje de fallo**</p>
+        </div>
+        
+        <div class="panel encuesta-log">
+            <h4>📜 Ejemplo:</h4>
+            <p>Encuesta recibida: Satisfacción con la compra</p>
+            <p>Estado: Pendiente</p>
+            <p>Usuario responde y se guarda en la base de datos.</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
