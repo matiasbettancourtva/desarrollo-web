@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Seguridad - 2FA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul claro) */
+        .seguridad-header {
+            background-color: #e3f2fd; /* Azul muy claro similar al diagrama */
+            color: #333;
+            border-left: 5px solid #ff9800; /* Naranja/Ámbar para seguridad */
+            text-align: center;
+        }
+        
+        .seguridad-header h2 {
+            margin: 0;
+        }
+
+        /* Bloque de Métodos Disponibles (Blanco) */
+        .seguridad-metodos {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .seguridad-metodos h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .seguridad-metodos ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .seguridad-metodos li {
+            padding: 5px 0;
+            color: #555;
+        }
+
+        /* Bloque de Botón Activar (Azul claro) */
+        .seguridad-accion {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .seguridad-accion button {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Verde para acción de activar */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Log de Seguridad (Amarillo) */
+        .log-seguridad {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+        /* Mensaje de Éxito (Verde claro) */
+        .seguridad-exitosa {
+            background-color: #d4edda; /* Fondo verde claro */
+            color: #155724; /* Texto verde oscuro */
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Mensaje de Error (Rojo pálido) */
+        .error-seguridad {
+            background-color: #f8d7da; /* Fondo rojo claro */
+            color: #721c24; /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel seguridad-header">
+            <h2>🔐 Configuración de Seguridad - 2FA</h2>
+        </div>
+
+        <div class="panel seguridad-metodos">
+            <h3>Métodos disponibles:</h3>
+            <ul>
+                <li>- SMS</li>
+                <li>- Aplicación de Autenticación (Recomendado)</li>
+                <li>- Correo electrónico</li>
+            </ul>
+        </div>
+
+        <div class="panel seguridad-accion">
+            <button>[ ✅ Botón Activar 2FA ]</button>
+        </div>
+        
+        <div class="panel seguridad-exitosa">
+            <p>✔️ **2FA activada, al iniciar sesión se solicita código adicional**</p>
+        </div>
+
+        <div class="panel error-seguridad">
+            <p>❌ **Error al activar 2FA, cambios no aplicados**</p>
+        </div>
+        
+        <div class="log-seguridad">
+            <p>Logs Seguridad (ej.):</p>
+            <p>2025-09-29T11:20Z - 2FA activada correctamente vía App Authenticator</p>
+            <p>2025-09-29T11:25Z - Error: Fallo al registrar el método de 2FA</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
