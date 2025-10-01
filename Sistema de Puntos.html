@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Puntos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Rosa oscuro/Morado) */
+        .puntos-header {
+            background-color: #e0b0ff; /* Similar al morado/rosa del diagrama */
+            color: #333;
+            text-align: center;
+        }
+
+        /* Bloque de Saldo/Cálculos (Blanco/Rosa pálido) */
+        .puntos-saldo {
+            background-color: #fce8f0; /* Rosa pálido similar al diagrama */
+            border: 1px solid #e0b0ff;
+            padding: 20px;
+        }
+        
+        .puntos-saldo p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .puntos-saldo strong {
+            font-weight: bold;
+            color: #800080; /* Color púrpura para resaltar puntos */
+        }
+        
+        /* Bloque de acción del botón (Rosa/Morado) */
+        .puntos-accion {
+            background-color: #e0b0ff; /* Mismo color que el header */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .puntos-accion button {
+            padding: 10px 20px;
+            background-color: #800080; /* Púrpura más oscuro */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /* Log de Puntos (Amarillo) */
+        .log-puntos {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+
+        /* Mensaje de Error al Acumular (Rojo pálido) */
+        .error-acumular {
+            background-color: #f8d7da; /* Fondo rojo claro */
+            color: #721c24; /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel puntos-header">
+            <h2>⭐ Sistema de Puntos</h2>
+        </div>
+
+        <div class="panel puntos-saldo">
+            <p>Saldo actual: <strong>1200 puntos</strong></p>
+            <p>Nueva compra: <strong>+300 puntos</strong></p>
+            <p>Total esperado: <strong>1500 puntos</strong></p>
+        </div>
+
+        <div class="panel puntos-accion">
+            <button>[ 📝 Registrar compra ]</button>
+        </div>
+
+        <div class="panel error-acumular">
+             <p>❌ **Error al acumular puntos, no se actualiza saldo**</p>
+        </div>
+        
+        <div class="log-puntos">
+            <p>Logs Puntos (ej.):</p>
+            <p>2025-09-29T14:00Z - Compra registrada: +300 puntos sumados</p>
+            <p>2025-09-29T14:05Z - Error en servicio de puntos, no se acumularon</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
