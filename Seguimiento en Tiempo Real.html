@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Pedido en Tiempo Real</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 400px; /* Reducido para simular una vista más móvil */
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del seguimiento (Celeste oscuro) */
+        .seguimiento-main {
+            background-color: #5d9eeb; /* Azul oscuro similar al diagrama */
+            color: white;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+        .seguimiento-main h3 {
+            margin-top: 0;
+        }
+
+        /* Bloque del mapa (Blanco con marco) */
+        .mapa-container {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            height: 150px; /* Altura simulada para el mapa */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+        }
+        
+        .mapa-container p {
+            color: #333;
+            font-style: italic;
+        }
+
+        /* Bloque de acciones (Botones) */
+        .acciones-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .acciones-container button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-actualizar { 
+            background-color: #007bff; 
+            color: white; 
+        }
+        
+        .btn-reintentar { 
+            background-color: #dc3545; 
+            color: white; 
+        }
+
+        /* Mensajes de estado (Éxito y Error) */
+        .status-message {
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .status-success {
+            background-color: #ffffa0; /* Similar al amarillo de éxito */
+            color: #333;
+            border: 1px solid #cccc00;
+        }
+
+        .status-error {
+            background-color: #fce8e8; /* Similar al rosa/rojo de error */
+            color: #6d0000;
+            border: 1px dashed #d9534f;
+        }
+        
+        /* Log de seguimiento (fondo blanco alargado) */
+        .log-seguimiento {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 0.8em;
+            color: #555;
+            white-space: pre-wrap;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel seguimiento-main">
+            <h3>Pedido: #456 - En ruta</h3>
+            <p>Última actualización: 2025-09-29 14:00</p>
+            <p><strong>Estado: 🚚 En ruta - Llegada estimada 15:00</strong></p>
+        </div>
+
+        <div class="mapa-y-acciones">
+            <div class="mapa-container">
+                <p>[ Mapa con ubicación actual ]</p>
+            </div>
+            <div class="acciones-container">
+                <button class="btn-actualizar">[ Actualizar ubicación ]</button>
+                <button class="btn-reintentar">[ Reintentar ]</button>
+            </div>
+        </div>
+
+        <div class="status-message status-success">
+            <p>🟡 Ubicación actualizada correctamente</p>
+        </div>
+
+        <div class="status-message status-error">
+            <p>🔴 **Error: Servicio de geolocalización no disponible**</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">Acciones sugeridas: Reintentar / Revisar conexión GPS</p>
+        </div>
+        
+        <div class="log-seguimiento">
+            <p>Log de seguimiento (ej.):</p>
+            <p>2025-09-29T14:00Z - ubicación actualizada - ok</p>
+            <p>2025-09-29T13:50Z - intento de actualización - error (timeout)</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
