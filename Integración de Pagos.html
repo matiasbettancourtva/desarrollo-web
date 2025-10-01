@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración de Pagos - Frio Natural</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column; /* Para que la navbar esté arriba y el contenido abajo */
+            min-height: 100vh; /* Altura mínima para ocupar toda la ventana */
+        }
+
+        /* Barra de Navegación (Navbar) */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+        .navbar-icon {
+            font-size: 20px; /* Tamaño para la tuerca */
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Contenedor principal del contenido, excluyendo la navbar */
+        .content-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px; /* Padding para el contenido principal */
+            flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+            justify-content: center; /* Centra el contenido horizontalmente */
+            align-items: flex-start; /* Alinea al inicio verticalmente */
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
+        
+        /* Panel Izquierdo (Branding/Promo) - Ajustado para ser más "complementario" */
+        .panel-izquierda {
+            width: 150px; /* Ancho más compacto */
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Bordes redondeados */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el texto verticalmente */
+            align-items: center;
+            height: 200px; /* Altura más compacta */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
+        }
+        .panel-izquierda p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .frio-natural-text { /* Renombrado para evitar conflicto con navbar-brand */
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Contenedor principal de la lógica de pago (Métodos + Resultados) */
+        .pago-results-container {
+            display: flex;
+            gap: 20px;
+            background-color: #e0e0e0; /* Fondo gris claro para agrupar */
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+            max-width: 600px; /* Ancho máximo para esta sección */
+            flex-wrap: wrap; /* Permite que se envuelvan si es necesario */
+            justify-content: center;
+        }
+
+        /* Sección de Pago */
+        .seccion-pago {
+            background-color: white; /* Blanco para el card de métodos */
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px; /* Un poco más de ancho */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Sombra */
+        }
+        .metodos {
+            background-color: #f9f9f9; /* Fondo muy claro para la lista */
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .metodos strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+        .metodos ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0 0;
+        }
+        .metodos li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+        .confirmar-btn {
+            background-color: #28a745; /* Verde */
+            color: white;
+            border: none;
+            padding: 12px 20px; /* Más padding */
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Efecto hover */
+        }
+        .confirmar-btn:hover {
+            background-color: #218838; /* Verde más oscuro al pasar el mouse */
+        }
+
+        /* Sección de Resultados */
+        .seccion-resultados {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espacio entre los mensajes */
+            width: 300px; /* Ancho fijo para los resultados */
+        }
+        /* Los "escenario" como títulos se eliminaron, ahora solo los mensajes */
+        .confirmacion {
+            background-color: #d4edda; /* Verde claro */
+            color: #155724; /* Texto oscuro */
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold; /* El mensaje ahora es el principal */
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .mensaje-error {
+            background-color: #f8d7da; /* Rojo claro */
+            color: #721c24; /* Texto oscuro */
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold; /* El mensaje ahora es el principal */
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .panel-izquierda, .pago-results-container {
+                width: 90%; /* Ocupar casi todo el ancho en móviles */
+                max-width: 400px;
+            }
+            .pago-results-container {
+                flex-direction: column; /* Apilar en móviles */
+            }
+            .seccion-pago, .seccion-resultados {
+                width: 100%; /* Ocupar todo el ancho dentro de su contenedor */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Frio Natural</a>
+        <div class="navbar-icon">&#9881;</div> </nav>
+
+    <div class="content-container">
+        
+        <div class="panel-izquierda">
+            <p class="frio-natural-text">Frio Natural</p>
+            <p>Ilustración / promo</p>
+        </div>
+
+        <div class="pago-results-container">
+            <div class="seccion-pago">
+                <div class="metodos">
+                    <strong>Método de pago:</strong>
+                    <ul>
+                        <li>- Tarjeta crédito</li>
+                        <li>- Débito</li>
+                        <li>- Transferencia</li>
+                    </ul>
+                </div>
+                <button class="confirmar-btn">Confirmar compra</button>
+            </div>
+
+            <div class="seccion-resultados">
+                <div class="confirmacion">Confirmación recibida: "Pago realizado con éxito"</div>
+                <div class="mensaje-error">Mensaje: "Error en el método de pago"</div>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
