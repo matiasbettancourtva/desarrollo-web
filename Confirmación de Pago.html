@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Pago - Frio Natural</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column; 
+            min-height: 100vh;
+        }
+
+        /* --- Estilos de la Barra de Navegación (Mantenidos) --- */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+        .navbar-icon {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* --- Contenedor Principal (Mantenidos) --- */
+        .content-container {
+            display: flex;
+            gap: 30px; /* Aumentado el espacio para mejor visualización */
+            padding: 20px;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        /* --- Panel Izquierdo (Mantenidos) --- */
+        .panel-izquierda {
+            width: 150px;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .panel-izquierda p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .frio-natural-text {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* --- Nuevo Contenedor de Confirmación de Pago (Main Content) --- */
+        .confirmation-container {
+            display: flex;
+            gap: 40px; /* Espacio entre los detalles y los resultados */
+            padding: 20px;
+            /* No tiene un fondo claro para agrupar, los elementos son individuales */
+            max-width: 900px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* --- 1. Sección de Detalles y Acciones (Columna Izquierda del Diagrama) --- */
+        .details-and-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-width: 300px;
+        }
+        
+        /* Tabla de Detalles */
+        .payment-details-table {
+            border: 1px solid #ccc; /* Borde gris sutil */
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .detail-row {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+            color: #333;
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        .detail-row.processing {
+            background-color: #e0f0ff; /* Azul claro para "Procesando..." */
+            color: #0056b3;
+            border-top: 2px solid #007bff; /* Línea azul superior sutil */
+        }
+
+        /* Botones de Acción */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .action-buttons button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        .btn-confirmar {
+            background-color: #28a745; /* Verde */
+            color: white;
+        }
+        .btn-cancelar {
+            background-color: #dc3545; /* Rojo */
+            color: white;
+        }
+        
+        /* Mensaje Inferior */
+        .bottom-message {
+            background-color: #fff3cd; /* Amarillo claro */
+            color: #856404; /* Texto marrón */
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .info-icon {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #ffc107; /* Amarillo más oscuro para el ícono */
+        }
+
+        /* --- 2. Sección de Resultados de Escenarios (Columna Derecha del Diagrama) --- */
+        .scenario-results {
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Gran espacio entre éxito y fallo */
+            min-width: 300px;
+        }
+        
+        /* Estilos de los Escenarios */
+        .scenario-block {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        /* Correo Exitoso */
+        .email-success-message {
+            background-color: #d4edda; /* Verde claro */
+            color: #155724; /* Texto oscuro */
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .check-icon {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #28a745; /* Verde para el check */
+        }
+
+        /* Correo Fallido */
+        .email-failure-message {
+            background-color: #f8d7da; /* Rojo claro/Rosa */
+            color: #721c24; /* Texto oscuro */
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .x-icon {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #dc3545; /* Rojo para la X */
+        }
+
+
+        /* Media Queries para responsividad */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .panel-izquierda, .confirmation-container {
+                width: 90%;
+                max-width: 400px;
+            }
+            .confirmation-container {
+                flex-direction: column;
+            }
+            .details-and-actions, .scenario-results {
+                width: 100%;
+                min-width: auto;
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Frio Natural</a>
+        <div class="navbar-icon">&#9881;</div> 
+    </nav>
+
+    <div class="content-container">
+        
+        <div class="panel-izquierda">
+            <p class="frio-natural-text">Frio Natural</p>
+            <p>Ilustración / promo</p>
+        </div>
+
+        <div class="confirmation-container">
+            
+            <div class="details-and-actions">
+                
+                <div class="payment-details-table">
+                    <div class="detail-row">Monto: $5.000</div>
+                    <div class="detail-row">Método: Tarjeta</div>
+                    <div class="detail-row processing">Estado: Procesando...</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-confirmar">Confirmar</button>
+                    <button class="btn-cancelar">Cancelar</button>
+                </div>
+                
+                <div class="bottom-message">
+                    <span class="info-icon">⚠️</span> Te hemos enviado un comprobante al correo
+                </div>
+            </div>
+
+            <div class="scenario-results">
+                
+                <div class="scenario-block">
+                    <div class="email-success-message">
+                        <span class="check-icon">✓</span> Correo recibido: "Confirmación de pago"
+                    </div>
+                </div>
+                
+                <div class="scenario-block">
+                    <div class="email-failure-message">
+                        <span class="x-icon">✗</span> Correo recibido: "Error en el pago, transacción rechazada"
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
