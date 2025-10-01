@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Notificaciones de Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex; /* Cambiado a flex para una sola columna */
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 600px; /* Reducido el ancho máximo al eliminar la columna de la derecha */
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos de los bloques de tu diagrama */
+        .gestion-notificaciones {
+            background-color: #e0b0ff; /* Similar al morado */
+            border-left: 5px solid #800080;
+        }
+
+        .notificacion-enviada {
+            background-color: #ffffa0; /* Similar al amarillo */
+            border-left: 5px solid #cccc00;
+        }
+
+        .lista-notificaciones {
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .error-service {
+            background-color: #fce8e8; /* Similar al color de error */
+            color: #6d0000;
+            border: 1px dashed #d9534f;
+            font-weight: bold;
+        }
+        
+        .botones-accion button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-ver { background-color: #007bff; color: white; }
+        .btn-refrescar { background-color: #6c757d; color: white; }
+        .btn-reintentar { background-color: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h2 style="color: #800080;">Gestión de Notificaciones</h2>
+
+        <div class="panel gestion-notificaciones">
+            <h3>Pedido: #123 - En Preparación</h3>
+            <p>Última actualización: 2025-09-29 13:00</p>
+            <hr style="border-top: 1px solid #800080;">
+            <p><strong>Estado actual:</strong> Preparando pedido</p>
+
+            <div class="botones-accion">
+                <button class="btn-ver">Ver notificaciones</button>
+                <button class="btn-refrescar">Refrescar</button>
+            </div>
+
+            <h4>Notificaciones recientes:</h4>
+            <div class="botones-accion">
+                <button class="btn-reintentar">[Reintentar]</button>
+            </div>
+        </div>
+
+        <div class="panel notificacion-enviada">
+            <p>🔔 **Notificación enviada al correo del cliente**</p>
+        </div>
+
+        <div class="panel error-service">
+            <h4>Error: Servicio de notificaciones no disponible</h4>
+            <p>Acciones sugeridas: Reintentar / Revisar logs</p>
+        </div>
+
+        <div class="panel lista-notificaciones">
+            <h4>Lista de Notificaciones</h4>
+            <ul>
+                <li>**13:00** - Pedido #123: En preparación</li>
+                <li>**12:40** - Pago recibido</li>
+            </ul>
+        </div>
+        
+    </div>
+
+</body>
+</html>
