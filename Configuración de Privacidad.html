@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Privacidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul claro) */
+        .privacidad-header {
+            background-color: #e3f2fd; /* Azul muy claro similar al diagrama */
+            color: #333;
+            border-left: 5px solid #007bff;
+            text-align: center;
+        }
+
+        /* Bloque de Opciones (Blanco) */
+        .privacidad-opciones {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .privacidad-opciones h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .opcion {
+            margin-bottom: 15px;
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .opcion:last-child {
+            border-bottom: none;
+        }
+        
+        /* Estilo para los interruptores (simulados con inputs) */
+        .toggle-switch {
+            min-width: 50px;
+            text-align: right;
+        }
+
+        /* Bloque de Botón Guardar (Azul claro) */
+        .privacidad-accion {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .privacidad-accion button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Log de Configuración (Amarillo) */
+        .log-configuracion {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+        /* Mensaje de Éxito (Verde claro) */
+        .config-exitosa {
+            background-color: #d4edda; /* Fondo verde claro */
+            color: #155724; /* Texto verde oscuro */
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Mensaje de Error (Rojo pálido) */
+        .error-config {
+            background-color: #f8d7da; /* Fondo rojo claro */
+            color: #721c24; /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel privacidad-header">
+            <h2>🔒 Configuración de Privacidad</h2>
+        </div>
+
+        <div class="panel privacidad-opciones">
+            <h3>Opciones disponibles:</h3>
+            
+            <div class="opcion">
+                <span>Mostrar perfil: [Sí/No]</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="mostrar-perfil" checked>
+                    <label for="mostrar-perfil">Sí</label>
+                </div>
+            </div>
+
+            <div class="opcion">
+                <span>Compartir actividad: [Sí/No]</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="compartir-actividad">
+                    <label for="compartir-actividad">No</label>
+                </div>
+            </div>
+
+            <div class="opcion">
+                <span>Notificaciones por correo: [Activadas/Desactivadas]</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="notificaciones-correo" checked>
+                    <label for="notificaciones-correo">Activadas</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel privacidad-accion">
+            <button>[ 💾 Botón Guardar Cambios ]</button>
+        </div>
+        
+        <div class="panel config-exitosa">
+            <p>✔️ **Preferencias guardadas y aplicadas correctamente**</p>
+        </div>
+
+        <div class="panel error-config">
+            <p>❌ **Error al guardar cambios de privacidad**</p>
+        </div>
+        
+        <div class="log-configuracion">
+            <p>Logs Configuración (ej.):</p>
+            <p>2025-09-29T11:00Z - Preferencias actualizadas correctamente</p>
+            <p>2025-09-29T11:05Z - Error: No se guardaron los cambios</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
