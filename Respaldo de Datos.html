@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respaldo Automático de Datos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul claro) */
+        .respaldo-header {
+            background-color: #e3f2fd; /* Azul muy claro similar al diagrama */
+            color: #333;
+            border-left: 5px solid #007bff;
+            text-align: center;
+        }
+        
+        .respaldo-header h2 {
+            margin: 0;
+        }
+
+        /* Bloque de Opciones de Respaldo (Blanco) */
+        .respaldo-opciones {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .respaldo-opciones h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .respaldo-opciones ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        
+        .respaldo-opciones li {
+            padding: 5px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Bloque de Botón (Azul claro) */
+        .respaldo-accion {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .respaldo-accion button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Log de Respaldo (Amarillo) */
+        .log-respaldo {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+        /* Mensaje de Éxito (Verde claro) */
+        .respaldo-exitoso {
+            background-color: #d4edda; /* Fondo verde claro */
+            color: #155724; /* Texto verde oscuro */
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Mensaje de Error (Rojo pálido) */
+        .error-respaldo {
+            background-color: #f8d7da; /* Fondo rojo claro */
+            color: #721c24; /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel respaldo-header">
+            <h2>💾 Respaldo Automático de Datos</h2>
+        </div>
+
+        <div class="panel respaldo-opciones">
+            <h3>Opciones de respaldo:</h3>
+            <ul>
+                <li>- Diario (00:00 hrs)</li>
+                <li>- Semanal (Domingo)</li>
+                <li>- Manual bajo demanda</li>
+            </ul>
+        </div>
+
+        <div class="panel respaldo-accion">
+            <button>[ 🚀 Iniciar Backup Ahora ]</button>
+        </div>
+        
+        <div class="panel respaldo-exitoso">
+            <p>✔️ **Backup realizado correctamente, datos almacenados**</p>
+        </div>
+
+        <div class="panel error-respaldo">
+            <p>❌ **Error en backup, datos no guardados**</p>
+        </div>
+        
+        <div class="log-respaldo">
+            <p>Logs Respaldo (ej.):</p>
+            <p>2025-09-29T11:00Z - Backup diario realizado con éxito (120MB)</p>
+            <p>2025-09-29T11:05Z - Error: No se pudo guardar respaldo en servidor</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
