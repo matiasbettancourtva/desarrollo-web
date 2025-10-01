@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Métricas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul claro) */
+        .metricas-header {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            color: #333;
+            text-align: center;
+        }
+
+        /* Bloque de la lista de métricas (Blanco) */
+        .metricas-list {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .metricas-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .metricas-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .metricas-list li:last-child {
+            border-bottom: none;
+        }
+
+        .metricas-list span.icon {
+            color: #4CAF50; /* Color verde para el check */
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        /* Bloque de acción del botón (Azul claro) */
+        .metricas-accion {
+            background-color: #bbdefb; /* Mismo azul claro */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .metricas-accion button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /* Log de métricas (Amarillo) */
+        .log-metricas {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel metricas-header">
+            <h2>Panel de Métricas</h2>
+        </div>
+
+        <div class="panel metricas-list">
+            <h3>Métricas Disponibles:</h3>
+            <ul>
+                <li><span class="icon">✔️</span> Gráfico de ventas diarias</li>
+                <li><span class="icon">✔️</span> Gráfico de usuarios activos</li>
+                <li><span class="icon">✔️</span> Estadísticas generales</li>
+            </ul>
+        </div>
+
+        <div class="panel metricas-accion">
+            <button>[ 🔄 Actualizar métricas ]</button>
+        </div>
+        
+        <div class="log-metricas">
+            <p>Logs Métricas (ej.):</p>
+            <p>2025-09-29T14:00Z - Métricas cargadas correctamente</p>
+            <p>2025-09-29T14:05Z - Error al cargar métricas (timeout)</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
