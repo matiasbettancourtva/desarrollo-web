@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Promociones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul claro) */
+        .promo-header {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            color: #333;
+            text-align: center;
+        }
+
+        /* Bloque de Historial de Compras (Blanco) */
+        .historial-compras {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .historial-compras ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .historial-compras li {
+            padding: 5px 0;
+            color: #555;
+        }
+        
+        /* Bloque de acción del botón (Azul claro) */
+        .promo-accion {
+            background-color: #bbdefb; /* Mismo azul claro */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .promo-accion button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Log de Promociones (Amarillo) */
+        .log-promocion {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+        /* Mensaje de Éxito al recibir promoción (Verde claro) */
+        .oferta-recibida {
+            background-color: #d4edda; /* Fondo verde claro */
+            color: #155724; /* Texto verde oscuro */
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Mensaje de Error al enviar promoción (Rojo pálido) */
+        .error-envio {
+            background-color: #f8d7da; /* Fondo rojo claro */
+            color: #721c24; /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel promo-header">
+            <h2>🔥 Sistema de Promociones</h2>
+        </div>
+
+        <div class="panel historial-compras">
+            <h3>Historial de compras:</h3>
+            <ul>
+                <li>Zapatillas deportivas (45.000 CLP)</li>
+                <li>Polera básica (12.000 CLP)</li>
+                <li>Jeans azules (32.000 CLP)</li>
+            </ul>
+        </div>
+
+        <div class="panel promo-accion">
+            <button>[ 📧 Enviar promoción personalizada ]</button>
+        </div>
+        
+        <div class="panel oferta-recibida">
+            <p>✔️ **Oferta personalizada recibida correctamente**</p>
+        </div>
+
+        <div class="panel error-envio">
+            <p>❌ **Error al enviar promoción, cliente no recibe oferta**</p>
+        </div>
+        
+        <div class="log-promocion">
+            <p>Logs Promoción (ej.):</p>
+            <p>2025-09-29T15:00Z - Promoción enviada: 20% en zapatillas deportivas</p>
+            <p>2025-09-29T15:05Z - Error en servicio de promociones, oferta no enviada</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
