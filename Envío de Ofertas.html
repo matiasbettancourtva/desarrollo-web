@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Envío de Ofertas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul muy claro) */
+        .oferta-header {
+            background-color: #e3f2fd; /* Azul muy claro similar al diagrama */
+            color: #333;
+            border-left: 5px solid #007bff;
+            text-align: center;
+        }
+
+        /* Bloque de Contenido de la Promoción (Blanco) */
+        .oferta-contenido {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        
+        .oferta-contenido ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        
+        .oferta-contenido li {
+            padding: 5px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+        
+        /* Bloque de Programador de Envío (Azul claro) */
+        .oferta-programador {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* Log de Envío (Amarillo) */
+        .log-envio {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+        /* Mensaje de Éxito (Verde claro) */
+        .oferta-exitosa {
+            background-color: #d4edda; /* Fondo verde claro */
+            color: #155724; /* Texto verde oscuro */
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Mensaje de Error (Rojo pálido) */
+        .error-oferta {
+            background-color: #f8d7da; /* Fondo rojo claro */
+            color: #721c24; /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel oferta-header">
+            <h2>Sistema de Envío de Ofertas</h2>
+        </div>
+
+        <div class="panel oferta-contenido">
+            <h3>Nueva promoción:</h3>
+            <ul>
+                <li>- 25% en productos de tecnología</li>
+                <li>- 15% en ropa deportiva</li>
+                <li>- 2x1 en accesorios</li>
+            </ul>
+        </div>
+
+        <div class="panel oferta-programador">
+            <p>📅 **Día de envío programado** [2025-10-05]</p>
+        </div>
+        
+        <div class="panel oferta-exitosa">
+            <p>✔️ **Email de oferta recibido correctamente**</p>
+        </div>
+
+        <div class="panel error-oferta">
+            <p>❌ **Error al enviar la oferta, cliente no recibe email**</p>
+        </div>
+        
+        <div class="log-envio">
+            <p>Logs Envío (ej.):</p>
+            <p>2025-09-29T09:00Z - Oferta enviada: 25% en tecnología</p>
+            <p>2025-09-29T09:15Z - Error en servicio de correo, email no enviado</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
