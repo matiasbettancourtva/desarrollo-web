@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleta Digital - Frio Natural</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column; 
+            min-height: 100vh;
+        }
+
+        /* --- Estilos de la Barra de Navegación (Mantenidos) --- */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+        }
+        .navbar-icon {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* --- Contenedor Principal (Mantenidos) --- */
+        .content-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        /* --- Panel Izquierdo (Mantenidos) --- */
+        .panel-izquierda {
+            width: 150px;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .panel-izquierda p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .frio-natural-text {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* --- Nuevos Estilos para la Boleta Digital --- */
+        .boleta-container {
+            display: flex;
+            gap: 20px;
+            /* Usamos un color verde claro para el fondo principal de la boleta */
+            background-color: #e0f8e0; 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            max-width: 700px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .seccion-pago-info {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #d4edda;
+        }
+        .pago-confirmado {
+            color: #28a745;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .total-monto {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .descargar-btn {
+            background-color: #007bff; /* Azul para el botón de acción principal */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .descargar-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Sección de Resultados de Boleta (Separada a la derecha) --- */
+        .seccion-resultados-boleta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+        /* Estilo para Boleta Enviada (Éxito) */
+        .boleta-enviada {
+            background-color: #d4edda; /* Verde claro */
+            color: #155724; /* Texto oscuro */
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 10px; /* Separación extra */
+        }
+        /* Estilo para Error en Envío de Boleta */
+        .error-envio {
+            background-color: #f8d7da; /* Rojo claro */
+            color: #721c24; /* Texto oscuro */
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        /* Media Queries (Mantenidas y ajustadas) */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .panel-izquierda, .boleta-container {
+                width: 90%;
+                max-width: 400px;
+            }
+            .boleta-container {
+                flex-direction: column;
+            }
+            .seccion-pago-info, .seccion-resultados-boleta {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Frio Natural</a>
+        <div class="navbar-icon">&#9881;</div> 
+    </nav>
+
+    <div class="content-container">
+        
+        <div class="panel-izquierda">
+            <p class="frio-natural-text">Frio Natural</p>
+            <p>Ilustración / promo</p>
+        </div>
+
+        <div class="boleta-container">
+            
+            <div class="seccion-pago-info">
+                <div class="pago-confirmado">✅ Pago confirmado</div>
+                <div class="total-monto">Total: $50.000</div>
+                <button class="descargar-btn">Descargar boleta</button>
+            </div>
+
+            <div class="seccion-resultados-boleta">
+                
+                <div class="boleta-enviada">
+                    <p style="font-size: 0.9em; margin: 0 0 5px 0;">Envío por correo:</p>
+                    <p style="margin: 0;">"Boleta digital enviada a tu correo"</p>
+                </div>
+                
+                <div class="error-envio">
+                    <p style="font-size: 0.9em; margin: 0 0 5px 0;">Error en el envío:</p>
+                    <p style="margin: 0;">Mensaje: "Error en servicio de correo. Descargue su boleta manualmente"</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
