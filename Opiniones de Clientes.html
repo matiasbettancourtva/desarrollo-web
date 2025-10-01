@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opiniones de Clientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .panel {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bloque principal del título (Azul oscuro) */
+        .opiniones-header {
+            background-color: #5d9eeb; /* Azul oscuro similar al diagrama */
+            color: white;
+            text-align: center;
+        }
+
+        /* Estilo de cada opinión (Blanco/Claro con estrella) */
+        .opinion-card {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        .opinion-card p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #333;
+        }
+        
+        .opinion-card span.icon {
+            color: #ffc107; /* Color dorado para la estrella */
+            margin-right: 5px;
+        }
+
+        /* Bloque de acción del botón (Azul claro) */
+        .opiniones-accion {
+            background-color: #bbdefb; /* Azul claro similar al diagrama */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .opiniones-accion button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /* Log de opiniones (Amarillo) */
+        .log-opiniones {
+            background-color: #ffffa0; /* Similar al amarillo del diagrama */
+            color: #555;
+            border: 1px solid #cccc00;
+            font-size: 0.9em;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap; /* Mantiene el formato del ejemplo (ej.) */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="panel opiniones-header">
+            <h2>Opiniones de Clientes</h2>
+        </div>
+
+        <div class="panel opinion-card">
+            <p><span class="icon">⭐</span> **Opinión 1:** "Excelente servicio, llegó a tiempo"</p>
+        </div>
+
+        <div class="panel opinion-card">
+            <p><span class="icon">⭐</span> **Opinión 2:** "Muy buena calidad, volveré a comprar"</p>
+        </div>
+
+        <div class="panel opiniones-accion">
+            <button>[ 🔄 Actualizar opiniones ]</button>
+        </div>
+        
+        <div class="log-opiniones">
+            <p>Logs de Opiniones (ej.):</p>
+            <p>2025-09-29T14:00Z - Opiniones cargadas correctamente</p>
+            <p>2025-09-29T14:05Z - Error al cargar opiniones (timeout)</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
